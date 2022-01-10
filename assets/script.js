@@ -39,12 +39,20 @@ var generatePassword = function () {
   // loop through selected variables and create password
 
   for (var i = 0; i < passwordLength.length; i++) {
-    password += lowerCase.charAt(Math.random() * lowerCase.length);
-    password += upperCase.charAt(Math.random() * upperCase.length);
-    password += numbers.charAt(Math.random() * numbers.length);
-    password += specialCharacters.charAt(
-      Math.random() * specialCharacters.length
-    );
+    if (lowerCaseConfirm) {
+      password += lowerCase.charAt(Math.random() * lowerCase.length);
+    }
+    if (upperCaseConfirm) {
+      password += upperCase.charAt(Math.random() * upperCase.length);
+    }
+    if (numericConfirm) {
+      password += numbers.charAt(Math.random() * numbers.length);
+    }
+    if (specialConfirm) {
+      password += specialCharacters.charAt(
+        Math.random() * specialCharacters.length
+      );
+    }
   }
   return password;
 };
